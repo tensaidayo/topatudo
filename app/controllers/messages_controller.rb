@@ -1,5 +1,7 @@
 class MessagesController < ApplicationController
+  before_action :authenticate_user!, except: :homepage
   before_action :set_message, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /messages
   # GET /messages.json
@@ -7,13 +9,24 @@ class MessagesController < ApplicationController
     @messages = Message.all
   end
 
+  def homepage
+    @messages = Message.all
+    @users = User.all
+  end
+
+
+
+
   # GET /messages/1
   # GET /messages/1.json
   def show
+
+
   end
 
   # GET /messages/new
   def new
+
     @message = Message.new
   end
 
@@ -21,11 +34,13 @@ class MessagesController < ApplicationController
   def edit
   end
 
+
+
   # POST /messages
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
+    @message.user = current_user
     respond_to do |format|
       if @message.save
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
