@@ -2,31 +2,22 @@
 
 <h1>Messages</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="row">
     <% @messages.each do |message| %>
-      <tr>
-
-        <td><%= message.title %></td>
-        <td><%= message.description %></td>
-        <td><%= link_to 'Show', message %></td>
-        <% if can? :manage, message %>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+    <div class="col-3">
+      <div class="card">
+        <div class="card-header">
+        <%= message.title %>
+        </div>
+        <div class="card-body">
+        <%= message.description %>
+      </div>
     <% end %>
-  </tbody>
-</table>
+</div>
+</div>
+</div>
 
-<br>
+
+
 
 <%= link_to 'New Message', new_message_path %>

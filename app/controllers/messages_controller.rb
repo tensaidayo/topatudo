@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
-  before_action :authenticate_user!, except: :homepage
   before_action :set_message, only: [:show, :edit, :update, :destroy]
-  load_and_authorize_resource
+  before_action :authenticate_user!, except: :homepage
+	load_and_authorize_resource :except => [:homepage]
 
   # GET /messages
   # GET /messages.json
@@ -11,7 +11,7 @@ class MessagesController < ApplicationController
 
   def homepage
     @messages = Message.all
-    @users = User.all
+
   end
 
 
