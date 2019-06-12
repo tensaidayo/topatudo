@@ -1,5 +1,7 @@
-<h1>New Message</h1>
+<center>
+<h1>Novo Topico</h1>
 
-<%= render 'form', message: @message %>
+<%= render 'form', message: @message, :class => "btn btn-primary btn-lg" %>
 
-<%= link_to 'Back', messages_path %>
+<%= link_to 'Voltar', messages_path, :class => "btn btn-primary btn-lg" %>
+</center>

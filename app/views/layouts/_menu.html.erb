@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,17 +8,17 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Topa Tudo</a>
+      <a class="navbar-brand" href="/">Home</a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="nav-item">
-          <%= link_to 'Cadastrar aviso', new_message_path %>
+          <%= link_to 'Cadastrar Topico', new_message_path %>
         </li>
         <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to 'Meus avisos', messages_path %>
+          <%= link_to 'Meus Topicos', messages_path %>
         </li>
         <% end %>
       </ul>
@@ -26,11 +26,11 @@
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>
             Logged in as <strong><%= current_user.email %></strong>.
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'navbar-link' %> |
+            <%= link_to "Deslogar", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% else %>
-            <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-            <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+            <%= link_to "Sair", new_user_registration_path, :class => 'navbar-link'  %> |
+            <%= link_to "Logar", new_user_session_path, :class => 'navbar-link'  %>
           <% end %>
         </p>
       </ul>
